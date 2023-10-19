@@ -1,0 +1,26 @@
+<header>
+    <div class="container">
+        <a routerLink="/" class="logo"> საგამომცემლო სახლი </a> 
+        <nav>
+            <ul>
+                <li *ngIf="!isAuth">
+                    <a routerLink="/login">ავტორიზაცია</a>
+                </li>
+                <li *ngIf="isAuth" class="menu-container">
+                    <a routerLink="/dashboard">{{user.name}}</a>
+                    <div  class="menu">
+                        <a routerLink="/profile">ჩემი პროფილი</a>
+                        <a routerLink="/orders"> შეკვეთები </a>
+                        <a  (click)="logout()">გასვლა</a>
+                    </div>
+                </li>
+            <li>
+                <a routerLink="/cart-page">
+                    კალათა <span *ngIf="cartQuantity">{{cartQuantity}}</span>
+
+                </a>
+            </li>
+            </ul>
+        </nav>
+    </div>
+</header>

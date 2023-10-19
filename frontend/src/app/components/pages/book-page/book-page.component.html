@@ -1,0 +1,41 @@
+<app-not-found
+  [visible]="!book.id"
+  notFoundMessage="წიგნი ვერ მოიძებნა"
+  resetLinkText="მთავარ გვერდზე დაბრუნება">
+</app-not-found>
+
+<div *ngIf="book.id" class="container">
+    <img [src]="book.imageUrl" [alt]="book.name"/>
+  
+    <div class="details">
+      <div class="header">
+        <span class="name">
+          {{book.name}}
+        </span>
+        <span class="favorite {{book.favorite? '': 'not'}}">❤</span>
+
+  
+      <div class="author">
+        <span *ngFor="let origin of book.author">
+          {{book.author}}
+        </span>
+      </div>
+  
+      <div class="tags">
+        <a *ngFor="let tag of book.tags" routerLink="/tag/{{tag}}">
+          {{tag}}
+        </a>
+      </div>
+  
+
+  
+      <div class="price">
+        <span>
+            {{book.price}} GEL
+        </span>
+      </div>
+  
+      <button (click)="addToCart()">კალათაში დამატება</button>
+  
+    </div>
+  </div>

@@ -1,0 +1,38 @@
+<app-search></app-search>
+<app-tags></app-tags>
+<app-not-found
+[visible]="!books || !books.length"
+resetLinkText="ფილტრის გასუფთავება"
+></app-not-found>
+<ul>
+
+    <li *ngFor="let book of books">
+      <a routerLink="/book/{{book.id}}">
+        <img [src]="book.imageUrl" [alt]="book.name"/>
+        <div class="content">
+          <div class="name">
+            {{book.name}}
+          </div>
+          <span class="favorite {{book.favorite?'':'not'}}">
+            ❤
+          </span>
+        
+          <div class="product-item-footer">
+            <div class="author">
+              <span *ngFor="let author of book.author">
+                {{book.author}}
+              </span>
+            </div>
+  
+         
+          </div>
+  
+          <div class="price">
+            <span>
+              {{book.price}} GEL
+            </span>
+          </div>
+        </div>
+      </a>
+    </li>
+  </ul>
