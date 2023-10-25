@@ -100,7 +100,7 @@ export const sample_books: Book[] = [
 
 
 export const sample_tags:Tag[] = [
-//{ name: 'ყველა', count: 10 },
+
   { name: 'წიგნი', count: 5 },
   { name: 'სტატია', count: 2 },
   { name: 'ელ.რესურსი', count: 3 },
